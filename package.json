@@ -3,7 +3,7 @@
     "build": "rimraf dist && webpack",
     "prettify": "eslint --fix src/ tests/ && elm-format --yes src/elm",
     "serve": "webpack-serve --config ./webpack.config.js --port 3000",
-    "test": "jest --bail --coverage --detectOpenHandles --forceExit && elm-test"
+    "test": "jest --bail --coverage --detectOpenHandles --env=jsdom --forceExit && elm-test"
   },
   "jest": {
     "roots": [
@@ -14,6 +14,7 @@
       "tests/elm-stuff"
     ],
     "testRegex": "\\.js$",
+    "testURL": "http://localhost/",
     "moduleFileExtensions": [
       "js"
     ],
@@ -29,11 +30,15 @@
     "elm-format": "^0.6.1-alpha",
     "elm-test": "^0.18.12",
     "elm-webpack-loader": "^4.5.0",
-    "eslint": "^5.2.0",
+    "eslint": "^5.3.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "gh-pages": "^1.2.0",
     "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.4.2",
     "node-sass": "^4.9.2",
+    "prettier": "^1.14.0",
     "rimraf": "^2.6.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.21.0",

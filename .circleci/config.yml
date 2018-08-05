@@ -1,0 +1,94 @@
+version: 2
+
+jobs:
+  setup:
+    docker:
+      - image: circleci/node:8.11.3
+
+    working_directory: ~/elm
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - libsysconfcpus-dependencies-{{ checksum "scripts/ci/ensure_libsysconfcpus.sh" }}
+          - libsysconfcpus-dependencies-
+
+      - run: ./scripts/ci/ensure_libsysconfcpus.sh
+
+      - save_cache:
+          paths:
+            - sysconfcpus
+          key: libsysconfcpus-dependencies-{{ checksum "scripts/ci/ensure_libsysconfcpus.sh" }}
+
+      - restore_cache:
+          keys:
+          - node_modules-dependencies-{{ checksum "package.json" }}
+          - node_modules-dependencies-
+
+      - run: npm install
+      - run: ./scripts/ci/replace_elm_make.sh 1
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: node_modules-dependencies-{{ checksum "package.json" }}
+
+      - persist_to_workspace:
+          root: ~/
+          paths: ./*
+
+  test:
+    docker:
+      - image: circleci/node:8.11.3
+
+    working_directory: ~/elm
+
+    steps:
+      - attach_workspace:
+          at: ~/
+
+      - restore_cache:
+          keys:
+          - elm-dependencies-{{ checksum "elm-package.json" }}-{{ checksum "tests/elm-package.json" }}
+          - elm-dependencies-
+
+      - run: npm run test
+
+      - save_cache:
+          paths:
+            - elm-stuff
+            - tests/elm-stuff
+          key: elm-dependencies-{{ checksum "elm-package.json" }}-{{ checksum "tests/elm-package.json" }}
+
+      - persist_to_workspace:
+          root: ~/
+          paths: ./*
+
+  build:
+    docker:
+      - image: circleci/node:8.11.3
+
+    working_directory: ~/elm
+
+    steps:
+      - attach_workspace:
+          at: ~/
+
+      - run: npm run build
+
+workflows:
+  version: 2
+
+  test-build-and-deploy:
+    jobs:
+      - setup
+
+      - test:
+          requires:
+            - setup
+
+      - build:
+          requires:
+            - test
