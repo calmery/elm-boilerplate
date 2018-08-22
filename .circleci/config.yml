@@ -81,7 +81,7 @@ jobs:
 workflows:
   version: 2
 
-  test-build-and-deploy:
+  test-and-build:
     jobs:
       - setup
 
