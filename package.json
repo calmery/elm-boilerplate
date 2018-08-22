@@ -27,7 +27,7 @@
     "babel-eslint": "8.2.6",
     "css-loader": "1.0.0",
     "elm": "0.18.0",
-    "elm-format": "0.6.1-alpha",
+    "elm-format": "0.8.0",
     "elm-test": "0.18.12",
     "elm-webpack-loader": "4.5.0",
     "eslint": "5.4.0",
@@ -41,7 +41,7 @@
     "prettier": "1.14.2",
     "rimraf": "2.6.2",
     "sass-loader": "7.1.0",
-    "style-loader": "0.21.0",
+    "style-loader": "0.22.1",
     "webpack": "4.17.1",
     "webpack-cli": "3.1.0",
     "webpack-dev-server": "3.1.5"
