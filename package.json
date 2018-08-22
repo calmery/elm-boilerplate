@@ -27,7 +27,7 @@
     "babel-eslint": "8.2.6",
     "css-loader": "1.0.0",
     "elm": "0.18.0",
-    "elm-format": "0.6.1-alpha",
+    "elm-format": "0.8.0",
     "elm-test": "0.18.12",
     "elm-webpack-loader": "4.5.0",
     "eslint": "5.4.0",
