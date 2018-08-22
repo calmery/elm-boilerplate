@@ -12,20 +12,20 @@ jobs:
 
       - restore_cache:
           keys:
-          - libsysconfcpus-dependencies-{{ checksum "scripts/ci/ensure_libsysconfcpus.sh" }}
-          - libsysconfcpus-dependencies-
+          - elm-0.18-libsysconfcpus-dependencies-{{ checksum "scripts/ci/ensure_libsysconfcpus.sh" }}
+          - elm-0.18-libsysconfcpus-dependencies-
 
       - run: ./scripts/ci/ensure_libsysconfcpus.sh
 
       - save_cache:
           paths:
             - sysconfcpus
-          key: libsysconfcpus-dependencies-{{ checksum "scripts/ci/ensure_libsysconfcpus.sh" }}
+          key: elm-0.18-libsysconfcpus-dependencies-{{ checksum "scripts/ci/ensure_libsysconfcpus.sh" }}
 
       - restore_cache:
           keys:
-          - node_modules-dependencies-{{ checksum "package.json" }}
-          - node_modules-dependencies-
+          - elm-0.18-node_modules-dependencies-{{ checksum "package.json" }}
+          - elm-0.18-node_modules-dependencies-
 
       - run: npm install
       - run: ./scripts/ci/replace_elm_make.sh 1
@@ -33,7 +33,7 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: node_modules-dependencies-{{ checksum "package.json" }}
+          key: elm-0.18-node_modules-dependencies-{{ checksum "package.json" }}
 
       - persist_to_workspace:
           root: ~/
@@ -51,8 +51,8 @@ jobs:
 
       - restore_cache:
           keys:
-          - elm-dependencies-{{ checksum "elm-package.json" }}-{{ checksum "tests/elm-package.json" }}
-          - elm-dependencies-
+          - elm-0.18-dependencies-{{ checksum "elm-package.json" }}-{{ checksum "tests/elm-package.json" }}
+          - elm-0.18-dependencies-
 
       - run: npm run test
 
@@ -60,7 +60,7 @@ jobs:
           paths:
             - elm-stuff
             - tests/elm-stuff
-          key: elm-dependencies-{{ checksum "elm-package.json" }}-{{ checksum "tests/elm-package.json" }}
+          key: elm-0.18-dependencies-{{ checksum "elm-package.json" }}-{{ checksum "tests/elm-package.json" }}
 
       - persist_to_workspace:
           root: ~/
