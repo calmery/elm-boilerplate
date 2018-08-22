@@ -10,6 +10,10 @@ jobs:
     steps:
       - checkout
 
+      - restore_cache:
+          keys:
+          - elm-0.19-node_modules-dependencies-{{ checksum "package.json" }}
+
       - run: npm install
 
       - save_cache:
@@ -34,13 +38,13 @@ jobs:
       - restore_cache:
           keys:
           - elm-0.19-dependencies-{{ checksum "elm.json" }}
-          - elm-0.19-dependencies-
 
       - run: npm run test
 
       - save_cache:
           paths:
             - elm-stuff
+            - ~/.elm
           key: elm-0.19-dependencies-{{ checksum "elm.json" }}
 
       - persist_to_workspace:
