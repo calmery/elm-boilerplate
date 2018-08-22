@@ -1,5 +1,7 @@
 module.exports = {
-  Main: {
-    fullscreen: jest.fn()
+  Elm: {
+    Main: {
+      init: jest.fn()
+    }  
   }
 }
