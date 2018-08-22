@@ -13,7 +13,6 @@ jobs:
       - restore_cache:
           keys:
           - elm-0.18-libsysconfcpus-dependencies-{{ checksum "scripts/ci/ensure_libsysconfcpus.sh" }}
-          - elm-0.18-libsysconfcpus-dependencies-
 
       - run: ./scripts/ci/ensure_libsysconfcpus.sh
 
@@ -25,7 +24,6 @@ jobs:
       - restore_cache:
           keys:
           - elm-0.18-node_modules-dependencies-{{ checksum "package.json" }}
-          - elm-0.18-node_modules-dependencies-
 
       - run: npm install
       - run: ./scripts/ci/replace_elm_make.sh 1
@@ -52,7 +50,6 @@ jobs:
       - restore_cache:
           keys:
           - elm-0.18-dependencies-{{ checksum "elm-package.json" }}-{{ checksum "tests/elm-package.json" }}
-          - elm-0.18-dependencies-
 
       - run: npm run test
 
