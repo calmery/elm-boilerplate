@@ -2,7 +2,7 @@
   "scripts": {
     "build": "rimraf dist && webpack",
     "prettify": "eslint --fix src/ tests/ && elm-format --yes src/elm",
-    "serve": "webpack-serve --config ./webpack.config.js --port 3000",
+    "serve": "webpack-dev-server --port 3000",
     "test": "jest --bail --coverage --detectOpenHandles --env=jsdom --forceExit && elm-test"
   },
   "jest": {
@@ -44,6 +44,6 @@
     "style-loader": "^0.21.0",
     "webpack": "^4.16.4",
     "webpack-cli": "^3.1.0",
-    "webpack-serve": "^2.0.2"
+    "webpack-dev-server": "^3.1.5"
   }
 }
