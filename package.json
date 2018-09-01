@@ -30,7 +30,7 @@
     "elm-format": "0.8.0",
     "elm-test": "0.18.12",
     "elm-webpack-loader": "4.5.0",
-    "eslint": "5.4.0",
+    "eslint": "5.5.0",
     "eslint-config-prettier": "3.0.1",
     "eslint-plugin-prettier": "2.6.2",
     "gh-pages": "1.2.0",
