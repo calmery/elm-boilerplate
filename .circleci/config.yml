@@ -12,26 +12,14 @@ jobs:
 
       - restore_cache:
           keys:
-          - elm-0.18-libsysconfcpus-dependencies-{{ checksum "scripts/ci/ensure_libsysconfcpus.sh" }}
-
-      - run: ./scripts/ci/ensure_libsysconfcpus.sh
-
-      - save_cache:
-          paths:
-            - sysconfcpus
-          key: elm-0.18-libsysconfcpus-dependencies-{{ checksum "scripts/ci/ensure_libsysconfcpus.sh" }}
-
-      - restore_cache:
-          keys:
-          - elm-0.18-node_modules-dependencies-{{ checksum "package.json" }}
+          - elm-0.19-node_modules-dependencies-{{ checksum "package.json" }}
 
       - run: npm install
-      - run: ./scripts/ci/replace_elm_make.sh 1
 
       - save_cache:
           paths:
             - node_modules
-          key: elm-0.18-node_modules-dependencies-{{ checksum "package.json" }}
+          key: elm-0.19-node_modules-dependencies-{{ checksum "package.json" }}
 
       - persist_to_workspace:
           root: ~/
@@ -49,15 +37,15 @@ jobs:
 
       - restore_cache:
           keys:
-          - elm-0.18-dependencies-{{ checksum "elm-package.json" }}-{{ checksum "tests/elm-package.json" }}
+          - elm-0.19-dependencies-{{ checksum "elm.json" }}
 
       - run: npm run test
 
       - save_cache:
           paths:
             - elm-stuff
-            - tests/elm-stuff
-          key: elm-0.18-dependencies-{{ checksum "elm-package.json" }}-{{ checksum "tests/elm-package.json" }}
+            - ~/.elm
+          key: elm-0.19-dependencies-{{ checksum "elm.json" }}
 
       - persist_to_workspace:
           root: ~/

@@ -1,4 +1,4 @@
-module Update exposing (Msg(NoOp), update)
+module Update exposing (Msg(..), update)
 
 import Model exposing (Model)
 
@@ -9,4 +9,4 @@ type Msg
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    model ! []
+    ( model, Cmd.none )

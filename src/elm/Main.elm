@@ -1,6 +1,6 @@
 module Main exposing (..)
 
-import Html exposing (programWithFlags)
+import Browser exposing (element)
 import Flags exposing (decodeFlags)
 import Model exposing (Model)
 import Ports exposing (setTitle)
@@ -22,7 +22,7 @@ init value =
                 Err _ ->
                     ""
     in
-        message ! [ setTitle "" ]
+        ( message, setTitle "" )
 
 
 subscriptions : Model -> Sub Msg
@@ -32,7 +32,7 @@ subscriptions model =
 
 main : Program String Model Msg
 main =
-    programWithFlags
+    element
         { init = init
         , view = view
         , update = update
