@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "rimraf dist && webpack",
+    "build": "rimraf build && webpack",
     "build:production": "NODE_ENV=production npm run build",
     "prettify": "eslint --fix src/ tests/ && elm-format --yes src/elm",
     "serve": "webpack-dev-server --port 3000",
