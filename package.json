@@ -1,6 +1,7 @@
 {
   "scripts": {
     "build": "rimraf dist && webpack",
+    "build:production": "NODE_ENV=production npm run build",
     "prettify": "eslint --fix src/ tests/ && elm-format --yes src/elm",
     "serve": "webpack-dev-server --port 3000",
     "test": "jest --bail --coverage --detectOpenHandles --env=jsdom --forceExit && elm-test"
@@ -9,7 +10,6 @@
     "roots": [
       "tests"
     ],
-    "testEnvironment": "node",
     "testPathIgnorePatterns": [
       "tests/elm-stuff"
     ],
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "babel-eslint": "10.0.1",
+    "copy-webpack-plugin": "^4.5.4",
     "css-loader": "1.0.0",
     "elm": "0.18.0",
     "elm-format": "0.8.1",
@@ -43,6 +44,7 @@
     "style-loader": "0.23.1",
     "webpack": "4.21.0",
     "webpack-cli": "3.1.2",
-    "webpack-dev-server": "3.1.9"
+    "webpack-dev-server": "3.1.9",
+    "write-file-webpack-plugin": "^4.4.1"
   }
 }
