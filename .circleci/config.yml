@@ -61,7 +61,7 @@ jobs:
       - attach_workspace:
           at: ~/
 
-      - run: npm run build
+      - run: npm run build:production
 
 workflows:
   version: 2
