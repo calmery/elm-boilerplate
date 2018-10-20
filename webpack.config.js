@@ -12,9 +12,12 @@ const mode = (() => {
   }
 })();
 
+const isProduction = mode === 'production';
+
 module.exports = {
   entry: `${__dirname}/src/entry.js`,
   mode,
+  devtool: isProduction ? false : 'source-map',
   module: {
     rules: [
       {
@@ -28,7 +31,7 @@ module.exports = {
           loader: "elm-webpack-loader",
           options: {
             verbose: true,
-            optimize: mode === "production"
+            optimize: isProduction
           }
         }
       }
@@ -42,7 +45,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: `${__dirname}/src/index.html`,
       minify: {
-        collapseWhitespace: mode === "production"
+        collapseWhitespace: isProduction
       }
     }),
     new CopyWebpackPlugin([

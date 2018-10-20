@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "build": "rimraf dist && webpack",
+    "build": "rimraf build && webpack",
     "build:production": "NODE_ENV=production npm run build",
-    "prettify": "eslint --fix src/ tests/ && elm-format --yes src/elm",
-    "serve": "webpack-dev-server --port 3000",
+    "lint": "eslint --fix src/ tests/ && elm-format --yes src/elm",
+    "start": "webpack-dev-server --port 3000",
     "test": "jest --bail --coverage --detectOpenHandles --env=jsdom --forceExit && elm-test"
   },
   "jest": {
