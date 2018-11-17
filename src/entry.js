@@ -8,9 +8,12 @@ const flags = JSON.stringify({
   message: "Hello World"
 });
 
-const Elm = require("./elm/Main.elm");
+const { Elm } = require("./elm/Main.elm");
 
-Elm.Main.fullscreen(flags);
+Elm.Main.init({
+  node: document.getElementById("elm"),
+  flags
+});
 
 // For tests
 

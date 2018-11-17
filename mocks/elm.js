@@ -11,7 +11,9 @@ const ports = new Proxy(
 );
 
 module.exports = {
-  Main: {
-    fullscreen: () => ({ ports })
+  Elm: {
+    Main: {
+      init: () => ({ ports })
+    }
   }
 };
