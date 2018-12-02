@@ -46,5 +46,9 @@
     "webpack-cli": "3.1.2",
     "webpack-dev-server": "3.1.10",
     "write-file-webpack-plugin": "4.5.0"
+  },
+  "engine": {
+    "node": "10.14.0",
+    "npm": "6.4.1"
   }
 }
