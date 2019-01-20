@@ -48,7 +48,7 @@
     "write-file-webpack-plugin": "4.5.0"
   },
   "engine": {
-    "node": "10.14.0",
+    "node": "10.15.0",
     "npm": "6.4.1"
   }
 }
