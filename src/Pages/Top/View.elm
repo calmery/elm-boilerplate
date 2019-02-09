@@ -1,6 +1,20 @@
 module Pages.Top.View exposing (view)
 
-import Html exposing (Html, a, article, aside, div, footer, header, img, nav, node, section, text)
+import Html
+    exposing
+        ( Html
+        , a
+        , article
+        , aside
+        , div
+        , footer
+        , header
+        , img
+        , nav
+        , node
+        , section
+        , text
+        )
 import Html.Attributes exposing (alt, href, src, style)
 import Pages.Top.Model exposing (Model)
 import Pages.Top.Update exposing (Msg)
@@ -18,7 +32,13 @@ view model =
                 [ text "This is the main content."
                 , a [ href "/#/example" ] [ text "Go to Example" ]
                 , div []
-                    [ img [ src "assets/audits.png", alt "Audits", style "width" "100%" ] [] ]
+                    [ img
+                        [ src "assets/audits.png"
+                        , alt "Audits"
+                        , style "width" "100%"
+                        ]
+                        []
+                    ]
                 ]
             , section [] [ div [] [ text "This is a section." ] ]
             , article [] [ div [] [ text "This is an article." ] ]
