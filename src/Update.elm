@@ -56,7 +56,7 @@ update msg model =
             in
             ( { model
                 | pages =
-                    { pages | top = updatedModel }
+                    { pages | example = updatedModel }
               }
             , Cmd.map ExamplePageMsg nextCmdMsg
             )
