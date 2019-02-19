@@ -136,7 +136,10 @@ const production: Configuration = merge(common, {
           }
         }
       })
-    ]
+    ],
+    splitChunks: {
+      chunks: "all"
+    }
   },
   plugins: [
     new OptimizeCSSAssetsPlugin({
