@@ -1,5 +1,4 @@
-declare module '*.elm' {
-
+declare module "*.elm" {
   namespace Elm {
     interface Module {
       Main: Main;
@@ -13,7 +12,7 @@ declare module '*.elm' {
 
     interface InitialFunctionOptions {
       flags?: string;
-      node: HTMLElement;
+      node?: HTMLElement;
     }
 
     interface Application {
@@ -41,5 +40,4 @@ declare module '*.elm' {
   }
 
   export const Elm: Elm.Module;
-
 }

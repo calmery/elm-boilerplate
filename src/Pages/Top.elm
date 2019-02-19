@@ -1,4 +1,4 @@
-module Pages.Top.View exposing (view)
+module Pages.Top exposing (view)
 
 import Html
     exposing
@@ -16,8 +16,8 @@ import Html
         , text
         )
 import Html.Attributes exposing (alt, href, src, style)
-import Pages.Top.Model exposing (Model)
-import Pages.Top.Update exposing (Msg)
+import Model exposing (Model)
+import Update exposing (Msg)
 
 
 view : Model -> Html Msg

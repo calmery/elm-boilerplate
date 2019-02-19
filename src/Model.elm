@@ -2,29 +2,19 @@ module Model exposing (Model, initialModel)
 
 import Browser.Navigation exposing (Key)
 import Data.EnvironmentVariables exposing (EnvironmentVariables)
-import Pages.Example.Model as ExamplePage
-import Pages.Top.Model as TopPage
-import Url exposing (Url)
+import Route exposing (Route)
 
 
-initialModel : EnvironmentVariables -> Key -> Pages -> Url -> Model
-initialModel environmentVariables key pages url =
+initialModel : EnvironmentVariables -> Key -> Maybe Route -> Model
+initialModel environmentVariables key route =
     { environmentVariables = environmentVariables
     , key = key
-    , pages = pages
-    , url = url
+    , route = route
     }
 
 
 type alias Model =
     { environmentVariables : EnvironmentVariables
     , key : Key
-    , pages : Pages
-    , url : Url
-    }
-
-
-type alias Pages =
-    { example : ExamplePage.Model
-    , top : TopPage.Model
+    , route : Maybe Route
     }

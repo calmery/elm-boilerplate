@@ -5,8 +5,7 @@ import Browser.Navigation exposing (Key)
 import Flags exposing (decodeFlags)
 import Html exposing (text)
 import Model exposing (Model, initialModel)
-import Pages.Example.Main as ExamplePage
-import Pages.Top.Main as TopPage
+import Route exposing (parseUrl)
 import Tuple exposing (first, second)
 import Update exposing (Msg(..), update)
 import Url exposing (Url)
@@ -19,7 +18,7 @@ main =
         { init = init
         , view = view
         , update = update
-        , subscriptions = always Sub.none
+        , subscriptions = subscriptions
         , onUrlRequest = LinkClicked
         , onUrlChange = \url -> updateUrl url |> UrlChanged
         }
@@ -28,20 +27,18 @@ main =
 init : String -> Url -> Key -> ( Model, Cmd Msg )
 init flags url key =
     let
-        initialUrl =
+        route =
             updateUrl url
-
-        pages =
-            { example = first ExamplePage.init
-            , top = first TopPage.init
-            }
+                |> parseUrl
     in
-    ( initialModel (decodeFlags flags) key pages initialUrl
-    , Cmd.batch
-        [ Cmd.map TopPageMsg (second TopPage.init)
-        , Cmd.map ExamplePageMsg (second ExamplePage.init)
-        ]
+    ( initialModel (decodeFlags flags) key route
+    , Cmd.none
     )
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Sub.none
 
 
 

@@ -3,8 +3,10 @@ module View exposing (view)
 import Browser exposing (Document)
 import Html exposing (Html, div, text)
 import Model exposing (Model)
-import Pages.Example.View as ExamplePage
-import Pages.Top.View as TopPage
+import Pages.Example as Example
+import Pages.NotFound as NotFound
+import Pages.Top as Top
+import Route exposing (Route(..))
 import Update exposing (Msg(..))
 
 
@@ -12,23 +14,21 @@ view : Model -> Document Msg
 view model =
     { title = "Elm App"
     , body =
-        [ route model
+        [ viewPage model
         ]
     }
 
 
-route : Model -> Html Msg
-route model =
-    let
-        empty =
-            text ""
-    in
-    case model.url.path of
-        "/" ->
-            Html.map TopPageMsg (TopPage.view model.pages.top)
+viewPage : Model -> Html Msg
+viewPage model =
+    case model.route of
+        Just route ->
+            case route of
+                Top ->
+                    Top.view model
 
-        "/example" ->
-            Html.map ExamplePageMsg (ExamplePage.view model.pages.example)
+                Example ->
+                    Example.view model
 
-        _ ->
-            empty
+        Nothing ->
+            NotFound.view
