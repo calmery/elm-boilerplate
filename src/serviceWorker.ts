@@ -6,6 +6,7 @@ export function register() {
 
     window.addEventListener("load", () => {
       navigator.serviceWorker.register("service-worker.js").catch(error => {
+        // eslint-disable-next-line no-console
         console.error("Error during service worker registration:", error);
       });
     });

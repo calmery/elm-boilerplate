@@ -112,9 +112,10 @@ const production: Configuration = merge(common, {
           compress: {
             passes: 2,
             unsafe: true,
-            unsafe_comps: true,
-            keep_fargs: false,
-            pure_getters: true,
+            unsafe_comps: true, // eslint-disable-line @typescript-eslint/camelcase
+            keep_fargs: false, // eslint-disable-line @typescript-eslint/camelcase
+            pure_getters: true, // eslint-disable-line @typescript-eslint/camelcase
+            // eslint-disable-next-line @typescript-eslint/camelcase
             pure_funcs: [
               "F2",
               "F3",

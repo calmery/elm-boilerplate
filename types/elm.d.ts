@@ -33,8 +33,10 @@ declare module "*.elm" {
         send: SendFunction;
       }
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       type SubscribeFunction = (data: any) => void;
       type UnsubscribeFunction = () => void;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       type SendFunction = (data: any) => void;
     }
   }
