@@ -20,7 +20,7 @@ main =
         , update = update
         , subscriptions = subscriptions
         , onUrlRequest = LinkClicked
-        , onUrlChange = \url -> updateUrl url |> UrlChanged
+        , onUrlChange = updateUrl >> UrlChanged
         }
 
 
@@ -46,9 +46,8 @@ subscriptions model =
 
 
 updateUrl : Url -> Url
-updateUrl url =
-    pathFromFragment url
-        |> fixPathAndQuery
+updateUrl =
+    pathFromFragment >> fixPathAndQuery
 
 
 pathFromFragment : Url -> Url
