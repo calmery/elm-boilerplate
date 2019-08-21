@@ -4,6 +4,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import OptimizeCSSAssetsPlugin from "optimize-css-assets-webpack-plugin";
 import * as path from "path";
+import ScriptExtHtmlWebpackPlugin from "script-ext-html-webpack-plugin";
 import UglifyJsPlugin from "uglifyjs-webpack-plugin";
 import {
   Configuration,
@@ -82,6 +83,9 @@ const common: Configuration = {
       minify: {
         collapseWhitespace: NODE_ENV === "production"
       }
+    }),
+    new ScriptExtHtmlWebpackPlugin({
+      defaultAttribute: "defer"
     }),
     new DefinePlugin({
       "process.env": {
