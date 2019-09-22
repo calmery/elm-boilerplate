@@ -9,8 +9,7 @@ export const flags = {
 };
 
 Elm.Main.init({
-  flags: JSON.stringify(flags),
-  node: document.body
+  flags: JSON.stringify(flags)
 });
 
 // eslint-disable-next-line no-console
