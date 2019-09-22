@@ -3,6 +3,31 @@
     "node": "10.16.3",
     "npm": "6.11.3"
   },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "env": {
+      "browser": true,
+      "jest": true,
+      "node": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {
+      "@typescript-eslint/indent": ["error", 2],
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/explicit-member-accessibility": "off",
+      "@typescript-eslint/no-explicit-any": "error"
+    }
+  },
   "devDependencies": {
     "@types/autoprefixer": "9.6.1",
     "@types/copy-webpack-plugin": "5.0.0",
