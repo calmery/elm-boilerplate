@@ -42,7 +42,7 @@ subscriptions model =
 
 
 
--- Routing
+-- Hash Routing
 
 
 updateUrl : Url -> Url
