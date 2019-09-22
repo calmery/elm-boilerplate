@@ -1,32 +1,16 @@
 {
-  "baseBranches": [
-    "master"
-  ],
-  "labels": [
-    "renovate"
-  ],
+  "baseBranches": ["master"],
+  "labels": ["renovate"],
   "major": {
-    "labels": [
-      "renovate",
-      "major"
-    ]
+    "labels": ["renovate", "major"]
   },
   "minor": {
-    "labels": [
-      "renovate",
-      "minor"
-    ]
+    "labels": ["renovate", "minor"]
   },
   "patch": {
-    "labels": [
-      "renovate",
-      "patch"
-    ]
+    "labels": ["renovate", "patch"]
   },
   "vulnerabilityAlerts": {
-    "labels": [
-      "renovate",
-      "security"
-    ]
+    "labels": ["renovate", "security"]
   }
 }
