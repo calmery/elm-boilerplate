@@ -1,7 +1,7 @@
 {
   "engine": {
     "node": "10.16.3",
-    "npm": "6.11.2"
+    "npm": "6.11.3"
   },
   "devDependencies": {
     "@types/autoprefixer": "9.6.1",
