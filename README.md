@@ -9,6 +9,8 @@ A frontend boilerplate with Elm, TypeScript and webpack.
 ## Usage
 
 ```bash
+$ rm -rf .github/workflows # GitHub Actions
+$ rm -rf .circleci # CircleCI
 $ npm ci
 ```
 
