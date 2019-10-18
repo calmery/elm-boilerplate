@@ -45,7 +45,7 @@
     "@types/workbox-webpack-plugin": "4.1.0",
     "@typescript-eslint/eslint-plugin": "2.4.0",
     "@typescript-eslint/parser": "2.3.2",
-    "autoprefixer": "9.6.1",
+    "autoprefixer": "9.6.5",
     "copy-webpack-plugin": "5.0.4",
     "css-loader": "3.2.0",
     "elm": "0.19.0",
