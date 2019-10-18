@@ -1,0 +1,52 @@
+name: Node CI
+
+on: [push]
+
+jobs:
+  lint:
+    strategy:
+      matrix:
+        node-version: [10.16.3, 8.16.2]
+        os: [windows-latest, macOS-latest, ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - run: npm run prettify
+
+  build:
+    strategy:
+      matrix:
+        node-version: [10.16.3, 8.16.2]
+        os: [windows-latest, macOS-latest, ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - run: npm run build
+
+  build-production:
+    strategy:
+      matrix:
+        node-version: [10.16.3, 8.16.2]
+        os: [windows-latest, macOS-latest, ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - run: npm run build:production
