@@ -6,7 +6,7 @@ jobs:
   lint:
     strategy:
       matrix:
-        node-version: [10.16.3]
+        node-version: [10.17.0]
         os: [windows-latest, macOS-latest, ubuntu-latest]
 
     runs-on: ${{ matrix.os }}
@@ -22,7 +22,7 @@ jobs:
   build:
     strategy:
       matrix:
-        node-version: [10.16.3]
+        node-version: [10.17.0]
         os: [windows-latest, macOS-latest, ubuntu-latest]
 
     runs-on: ${{ matrix.os }}
@@ -38,7 +38,7 @@ jobs:
   build-production:
     strategy:
       matrix:
-        node-version: [10.16.3]
+        node-version: [10.17.0]
         os: [windows-latest, macOS-latest, ubuntu-latest]
 
     runs-on: ${{ matrix.os }}
