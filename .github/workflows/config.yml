@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         node-version: [12.13.1]
-        os: [windows-latest, macOS-latest, ubuntu-latest]
+        os: [ubuntu-latest]
 
     runs-on: ${{ matrix.os }}
 
@@ -18,6 +18,22 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run prettify
+
+  test:
+    strategy:
+      matrix:
+        node-version: [12.13.1]
+        os: [ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm test
 
   build:
     strategy:
