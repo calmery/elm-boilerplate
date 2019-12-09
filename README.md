@@ -2,8 +2,6 @@
 
 A frontend boilerplate with Elm, TypeScript and webpack.
 
-[![CircleCI](https://circleci.com/gh/calmery/elm-boilerplate/tree/master.svg?style=svg)](https://circleci.com/gh/calmery/elm-boilerplate/tree/master)
-
 ![Audits](src/assets/audits.png)
 
 ## Usage
