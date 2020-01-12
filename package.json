@@ -38,7 +38,7 @@
     "@types/html-webpack-plugin": "3.2.1",
     "@types/jest": "24.0.25",
     "@types/mini-css-extract-plugin": "0.9.0",
-    "@types/node": "12.12.24",
+    "@types/node": "13.1.6",
     "@types/optimize-css-assets-webpack-plugin": "5.0.1",
     "@types/script-ext-html-webpack-plugin": "2.1.1",
     "@types/uglifyjs-webpack-plugin": "1.1.0",
