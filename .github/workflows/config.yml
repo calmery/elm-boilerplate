@@ -16,7 +16,7 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm i npm@6.13.6
+    - run: npm i npm@6.13.6 -g
     - run: npm ci
     - run: npm run prettify
 
@@ -33,7 +33,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm i npm@6.13.6
+      - run: npm i npm@6.13.6 -g
       - run: npm ci
       - run: npm test
 
@@ -50,6 +50,6 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm i npm@6.13.6
+    - run: npm i npm@6.13.6 -g
     - run: npm ci
     - run: npm run build
