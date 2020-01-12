@@ -126,10 +126,9 @@
     ]
   },
   "scripts": {
-    "build": "webpack",
-    "build:production": "npm run clean && run-script-os",
-    "build:production:win32": "set NODE_ENV=production npm run build",
-    "build:production:default": "NODE_ENV=production npm run build",
+    "build": "npm run clean && run-script-os",
+    "build:win32": "set NODE_ENV=production webpack",
+    "build:default": "NODE_ENV=production webpack",
     "clean": "rimraf build",
     "prettify": "npm-run-all prettify:*",
     "prettify:elm": "elm-format --yes .",
